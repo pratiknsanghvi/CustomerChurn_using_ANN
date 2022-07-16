@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Insurance Amount using Linear Regression</h1>
+	
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict_post_linearRegression')}}"method="post">
+    	<input type="number" name="Age" placeholder="Age" required="required" />
+	<input type="number" name="BMI" placeholder="BMI" required="required" />
+	<span class="input-group-addon">Sex</span>
+        <select name="sex_select" class="selectpicker form-control"required="required">
+          {% for o in data1 %}
+          <option value="{{ o.sex }}">{{ o.sex }}</option>
+          {% endfor %}
+        </select>
+
+
+
+     <span class="input-group-addon">Children</span>
+        <select name="children_select" class="selectpicker form-control"required="required">
+          {% for c in data2 %}
+          <option value="{{ c.child }}">{{ c.child }}</option>
+          {% endfor %}
+        </select>
+
+   <span class="input-group-addon">Smoker</span>
+        <select name="smoker_select" class="selectpicker form-control"required="required">
+          {% for s in data3 %}
+          <option value="{{ s.smoker }}">{{ s.smoker }}</option>
+          {% endfor %}
+        </select>
+
+
+          <span class="input-group-addon">Region</span>
+        <select name="region_select" class="selectpicker form-control"required="required">
+          {% for r in data4 %}
+          <option value="{{ r.region }}">{{ r.region }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>

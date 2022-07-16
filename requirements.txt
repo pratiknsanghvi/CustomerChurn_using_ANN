@@ -1,0 +1,16 @@
+Flask
+numpy
+matplotlib
+pandas
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+scipy
+scikit-learn
+fastapi
+uvicorn
+uvloop
+httptools
+flasgger
